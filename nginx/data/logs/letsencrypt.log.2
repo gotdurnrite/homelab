@@ -1,0 +1,365 @@
+2026-08-21 18:24:31,302:DEBUG:certbot_dns_hostinger._internal.dns_hostinger:Hostinger DNS plugin logger configured at DEBUG level
+2026-08-21 18:24:31,302:DEBUG:certbot._internal.main:certbot version: 5.6.0
+2026-08-21 18:24:31,303:DEBUG:certbot._internal.main:Location of certbot entry point: /opt/certbot/bin/certbot
+2026-08-21 18:24:31,303:DEBUG:certbot._internal.main:Arguments: ['-n', '--config', '/etc/letsencrypt.ini', '--work-dir', '/tmp/letsencrypt-lib', '--logs-dir', '/data/logs', '--cert-name', 'npm-4', '--agree-tos', '-m', 'callmemrcarter@gmail.com', '--preferred-challenges', 'dns', '--domains', '*.disdajoint.com', '--authenticator', 'dns-hostinger', '--dns-hostinger-credentials', '/etc/letsencrypt/credentials/credentials-4', '--dns-hostinger-propagation-seconds', '120', '--key-type', 'rsa']
+2026-08-21 18:24:31,304:DEBUG:certbot._internal.main:Discovered plugins: PluginsRegistry(PluginEntryPoint#dns-cloudflare,PluginEntryPoint#dns-hostinger,PluginEntryPoint#manual,PluginEntryPoint#null,PluginEntryPoint#standalone,PluginEntryPoint#webroot)
+2026-08-21 18:24:31,310:INFO:certbot_dns_hostinger._internal.dns_hostinger:Adding parser arguments
+2026-08-21 18:24:31,310:INFO:certbot_dns_hostinger._internal.dns_hostinger:Parser arguments added
+2026-08-21 18:24:31,759:DEBUG:certbot._internal.log:Root logging level set at 30
+2026-08-21 18:24:31,779:DEBUG:certbot._internal.plugins.selection:Requested authenticator dns-hostinger and installer None
+2026-08-21 18:24:31,781:INFO:certbot_dns_hostinger._internal.dns_hostinger:Initializing Hostinger authenticator
+2026-08-21 18:24:31,782:INFO:certbot_dns_hostinger._internal.dns_hostinger:Hostinger authenticator initialized
+2026-08-21 18:24:31,783:DEBUG:certbot._internal.plugins.selection:Single candidate plugin: * dns-hostinger
+Description: Obtain certificates using a DNS TXT record (if you are using Hostinger for DNS).
+Interfaces: Authenticator, Plugin
+Entry point: EntryPoint(name='dns-hostinger', value='certbot_dns_hostinger:Authenticator', group='certbot.plugins')
+Initialized: <certbot_dns_hostinger._internal.dns_hostinger.Authenticator object at 0x7a63aaf93cb0>
+Prep: True
+2026-08-21 18:24:31,785:DEBUG:certbot._internal.plugins.selection:Selected authenticator <certbot_dns_hostinger._internal.dns_hostinger.Authenticator object at 0x7a63aaf93cb0> and installer None
+2026-08-21 18:24:31,786:INFO:certbot._internal.plugins.selection:Plugins selected: Authenticator dns-hostinger, Installer None
+2026-08-21 18:24:31,895:DEBUG:certbot._internal.main:Picked account: <Account(RegistrationResource(body=Registration(key=None, contact=(), agreement=None, status=None, terms_of_service_agreed=None, only_return_existing=None, external_account_binding=None), uri='https://acme-v02.api.letsencrypt.org/acme/acct/3654263481', new_authzr_uri=None, terms_of_service=None), 8743f42096a4c8af8eaa58392df4f2c7, Meta(creation_dt=datetime.datetime(2026, 8, 21, 22, 4, 43, tzinfo=datetime.timezone.utc), creation_host='ea994d1c222d', register_to_eff=None))>
+2026-08-21 18:24:31,898:DEBUG:acme.client:Sending GET request to https://acme-v02.api.letsencrypt.org/directory.
+2026-08-21 18:24:31,906:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): acme-v02.api.letsencrypt.org:443
+2026-08-21 18:24:32,224:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "GET /directory HTTP/1.1" 200 961
+2026-08-21 18:24:32,225:DEBUG:acme.client:Received response:
+HTTP 200
+Server: nginx
+Date: Fri, 21 Aug 2026 22:24:31 GMT
+Content-Type: application/json
+Content-Length: 961
+Connection: keep-alive
+Cache-Control: public, max-age=0, no-cache
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+{
+  "UGe-7LpSxSM": "https://community.letsencrypt.org/t/adding-random-entries-to-the-directory/33417",
+  "keyChange": "https://acme-v02.api.letsencrypt.org/acme/key-change",
+  "meta": {
+    "caaIdentities": [
+      "letsencrypt.org"
+    ],
+    "profiles": {
+      "classic": "https://letsencrypt.org/docs/profiles#classic",
+      "shortlived": "https://letsencrypt.org/docs/profiles#shortlived",
+      "tlsserver": "https://letsencrypt.org/docs/profiles#tlsserver"
+    },
+    "termsOfService": "https://letsencrypt.org/documents/LE-SA-v1.8-July-06-2026.pdf",
+    "website": "https://letsencrypt.org"
+  },
+  "newAccount": "https://acme-v02.api.letsencrypt.org/acme/new-acct",
+  "newNonce": "https://acme-v02.api.letsencrypt.org/acme/new-nonce",
+  "newOrder": "https://acme-v02.api.letsencrypt.org/acme/new-order",
+  "renewalInfo": "https://acme-v02.api.letsencrypt.org/acme/renewal-info",
+  "revokeCert": "https://acme-v02.api.letsencrypt.org/acme/revoke-cert"
+}
+2026-08-21 18:24:32,238:DEBUG:certbot._internal.display.obj:Notifying user: Requesting a certificate for *.disdajoint.com
+2026-08-21 18:24:32,309:DEBUG:acme.client:Requesting fresh nonce
+2026-08-21 18:24:32,310:DEBUG:acme.client:Sending HEAD request to https://acme-v02.api.letsencrypt.org/acme/new-nonce.
+2026-08-21 18:24:32,378:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "HEAD /acme/new-nonce HTTP/1.1" 200 0
+2026-08-21 18:24:32,380:DEBUG:acme.client:Received response:
+HTTP 200
+Server: nginx
+Date: Fri, 21 Aug 2026 22:24:31 GMT
+Connection: keep-alive
+Cache-Control: public, max-age=0, no-cache
+Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index"
+Replay-Nonce: eGEELIRKdDmitmkuaD8EfKGm1Jne0vpCOYTHjt1mCgHNJLRa9kM
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+
+2026-08-21 18:24:32,381:DEBUG:acme.client:Storing nonce: eGEELIRKdDmitmkuaD8EfKGm1Jne0vpCOYTHjt1mCgHNJLRa9kM
+2026-08-21 18:24:32,383:DEBUG:acme.client:JWS payload:
+b'{\n  "identifiers": [\n    {\n      "type": "dns",\n      "value": "*.disdajoint.com"\n    }\n  ]\n}'
+2026-08-21 18:24:32,387:DEBUG:acme.client:Sending POST request to https://acme-v02.api.letsencrypt.org/acme/new-order:
+{
+  "protected": "eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2FjY3QvMzY1NDI2MzQ4MSIsICJub25jZSI6ICJlR0VFTElSS2REbWl0bWt1YUQ4RWZLR20xSm5lMHZwQ09ZVEhqdDFtQ2dITkpMUmE5a00iLCAidXJsIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL25ldy1vcmRlciJ9",
+  "signature": "kT5O3sweJ907k5YsURhr_eUZAbTtn-Qlh29B6JADRzn3DP5tOYxMLrj4jg0CgY9mfcevwE9J7TjTlCti6Vexvta6-dMBWvNZUIpUJ4AlJ7_GTxRJJStnLmbaPnkVO5PfhHL8j7wJpoiPTQ4bh3Q6vHVTk_7dg_HISzd91nisRw4CMdmrcCqw05VCCLHPyicl7PA9gOL4lGBqfr9Ydd-dnzxu70k5rXxenzfsbLUlnwfUqhWeq7xoLYtuUjunaH9QA195_K42n9JNbgtuWccuUWy826LOkeT92T5-7pbeFF26mDeauc_zd0_QfsdKpT8wTjlM8yDwgk_y2dm28seUlA",
+  "payload": "ewogICJpZGVudGlmaWVycyI6IFsKICAgIHsKICAgICAgInR5cGUiOiAiZG5zIiwKICAgICAgInZhbHVlIjogIiouZGlzZGFqb2ludC5jb20iCiAgICB9CiAgXQp9"
+}
+2026-08-21 18:24:32,480:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "POST /acme/new-order HTTP/1.1" 201 350
+2026-08-21 18:24:32,481:DEBUG:acme.client:Received response:
+HTTP 201
+Server: nginx
+Date: Fri, 21 Aug 2026 22:24:31 GMT
+Content-Type: application/json
+Content-Length: 350
+Connection: keep-alive
+Boulder-Requester: 3654263481
+Cache-Control: public, max-age=0, no-cache
+Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index"
+Location: https://acme-v02.api.letsencrypt.org/acme/order/3654263481/547814748641
+Replay-Nonce: b-KY26iaqWFTTwKjj6bUHetNP8aG_CZOz7JZ_GwXahAebaw-kbk
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+{
+  "status": "pending",
+  "expires": "2026-08-28T22:24:31Z",
+  "identifiers": [
+    {
+      "type": "dns",
+      "value": "*.disdajoint.com"
+    }
+  ],
+  "authorizations": [
+    "https://acme-v02.api.letsencrypt.org/acme/authz/3654263481/764232032061"
+  ],
+  "finalize": "https://acme-v02.api.letsencrypt.org/acme/finalize/3654263481/547814748641"
+}
+2026-08-21 18:24:32,483:DEBUG:acme.client:Storing nonce: b-KY26iaqWFTTwKjj6bUHetNP8aG_CZOz7JZ_GwXahAebaw-kbk
+2026-08-21 18:24:32,484:DEBUG:acme.client:JWS payload:
+b''
+2026-08-21 18:24:32,486:DEBUG:acme.client:Sending POST request to https://acme-v02.api.letsencrypt.org/acme/authz/3654263481/764232032061:
+{
+  "protected": "eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2FjY3QvMzY1NDI2MzQ4MSIsICJub25jZSI6ICJiLUtZMjZpYXFXRlRUd0tqajZiVUhldE5QOGFHX0NaT3o3SlpfR3dYYWhBZWJhdy1rYmsiLCAidXJsIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2F1dGh6LzM2NTQyNjM0ODEvNzY0MjMyMDMyMDYxIn0",
+  "signature": "iEd1YIt5mZ29MR78qQgLK0WbS56xeM1nGT18M4l4JSIETPtltu7B82O2zYodz-2uAYhXTztT41FCAbKEIu1PREPBRByQVnVvnD6_XR_rauaeEypr4HhozJ56WUFXMdrSKw7E9HDTo_YzNr9x-8pWn1j7vLwXIe_Egw6GAkjqD1jSJ4ZNLoykqCrvCF20c7ScvW4gTxcHVi5RDdgvPWImXvfwbO2kAZPwu1SBKuFrF99A2N0E1Vn2NFJwTRcMhPSwwbJI6LWw_o55cQpVGYwvcuCCW3LwWSBOBPuv03M5836JV3Xxz0QmcYPlJdo22mT9F9tR-zgT75lP8j0hSAC-Uw",
+  "payload": ""
+}
+2026-08-21 18:24:32,557:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "POST /acme/authz/3654263481/764232032061 HTTP/1.1" 200 396
+2026-08-21 18:24:32,559:DEBUG:acme.client:Received response:
+HTTP 200
+Server: nginx
+Date: Fri, 21 Aug 2026 22:24:31 GMT
+Content-Type: application/json
+Content-Length: 396
+Connection: keep-alive
+Boulder-Requester: 3654263481
+Cache-Control: public, max-age=0, no-cache
+Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index"
+Replay-Nonce: b-KY26ia1v4OpM5i5PpeaEO1DRZkZEaVFJ6vNcf3qDvjm8w5SQY
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+{
+  "identifier": {
+    "type": "dns",
+    "value": "disdajoint.com"
+  },
+  "status": "pending",
+  "expires": "2026-08-28T22:24:31Z",
+  "challenges": [
+    {
+      "type": "dns-01",
+      "url": "https://acme-v02.api.letsencrypt.org/acme/chall/3654263481/764232032061/qMse4A",
+      "status": "pending",
+      "token": "0xJaCABAPf7gdwcEAkqsKjYwbpCKPNRtbuosqopi6WA"
+    }
+  ],
+  "wildcard": true
+}
+2026-08-21 18:24:32,560:DEBUG:acme.client:Storing nonce: b-KY26ia1v4OpM5i5PpeaEO1DRZkZEaVFJ6vNcf3qDvjm8w5SQY
+2026-08-21 18:24:32,562:INFO:certbot._internal.auth_handler:Performing the following challenges:
+2026-08-21 18:24:32,563:INFO:certbot._internal.auth_handler:dns-01 challenge for Identifier(typ=IdentifierType(dns), value='disdajoint.com')
+2026-08-21 18:24:32,565:INFO:certbot_dns_hostinger._internal.dns_hostinger:Setting up credentials
+2026-08-21 18:24:32,585:INFO:certbot_dns_hostinger._internal.dns_hostinger:Validating credentials
+2026-08-21 18:24:32,587:INFO:certbot_dns_hostinger._internal.dns_hostinger:Credentials validated
+2026-08-21 18:24:32,588:INFO:certbot_dns_hostinger._internal.dns_hostinger:Credentials set up
+2026-08-21 18:24:32,590:DEBUG:certbot_dns_hostinger._internal.dns_hostinger:Starting DNS challenge for domain: disdajoint.com
+2026-08-21 18:24:32,591:DEBUG:certbot_dns_hostinger._internal.dns_hostinger:Validation name: _acme-challenge.disdajoint.com
+2026-08-21 18:24:32,593:DEBUG:certbot_dns_hostinger._internal.dns_hostinger:Validation content: -XSW-4I3JzihAa844MsFposSFFgaTEPsUQTzoFVeFdk
+2026-08-21 18:24:32,594:DEBUG:certbot_dns_hostinger._internal.dns_hostinger:TTL: 60
+2026-08-21 18:24:32,596:INFO:certbot_dns_hostinger._internal.dns_hostinger:Getting Hostinger client
+2026-08-21 18:24:32,597:INFO:certbot_dns_hostinger._internal.dns_hostinger:Initializing Hostinger client
+2026-08-21 18:24:32,599:INFO:certbot_dns_hostinger._internal.dns_hostinger:Hostinger client initialized
+2026-08-21 18:24:32,600:INFO:certbot_dns_hostinger._internal.dns_hostinger:Adding TXT record
+2026-08-21 18:24:32,602:INFO:certbot_dns_hostinger._internal.dns_hostinger:Initializing Hostinger API client
+2026-08-21 18:24:37,048:INFO:certbot_dns_hostinger._internal.dns_hostinger:Hostinger API client initialized
+2026-08-21 18:24:37,049:INFO:certbot_dns_hostinger._internal.dns_hostinger:Hostinger API client obtained
+2026-08-21 18:24:37,051:DEBUG:certbot_dns_hostinger._internal.dns_hostinger:Extracted root domain: disdajoint.com from disdajoint.com
+2026-08-21 18:24:37,052:DEBUG:certbot_dns_hostinger._internal.dns_hostinger:Using root domain: disdajoint.com, subdomain: _acme-challenge
+2026-08-21 18:24:37,054:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): developers.hostinger.com:443
+2026-08-21 18:24:37,636:DEBUG:urllib3.connectionpool:https://developers.hostinger.com:443 "GET /api/dns/v1/zones/disdajoint.com HTTP/1.1" 200 None
+2026-08-21 18:24:38,062:DEBUG:urllib3.connectionpool:https://developers.hostinger.com:443 "PUT /api/dns/v1/zones/disdajoint.com HTTP/1.1" 200 None
+2026-08-21 18:24:38,065:INFO:certbot_dns_hostinger._internal.dns_hostinger:Successfully added TXT record _acme-challenge to disdajoint.com zone
+2026-08-21 18:24:38,068:INFO:certbot_dns_hostinger._internal.dns_hostinger:DNS challenge performed successfully
+2026-08-21 18:24:38,070:DEBUG:certbot_dns_hostinger._internal.dns_hostinger:DNS challenge completed for domain: disdajoint.com
+2026-08-21 18:24:38,072:DEBUG:certbot._internal.display.obj:Notifying user: Waiting 120 seconds for DNS changes to propagate
+2026-08-21 18:26:38,065:DEBUG:acme.client:JWS payload:
+b'{}'
+2026-08-21 18:26:38,068:DEBUG:acme.client:Sending POST request to https://acme-v02.api.letsencrypt.org/acme/chall/3654263481/764232032061/qMse4A:
+{
+  "protected": "eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2FjY3QvMzY1NDI2MzQ4MSIsICJub25jZSI6ICJiLUtZMjZpYTF2NE9wTTVpNVBwZWFFTzFEUlprWkVhVkZKNnZOY2YzcUR2am04dzVTUVkiLCAidXJsIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2NoYWxsLzM2NTQyNjM0ODEvNzY0MjMyMDMyMDYxL3FNc2U0QSJ9",
+  "signature": "ZE9f4jfKSCXe-X0aPS7h4FM8d2MMgCNmQF4dkQt0-p3zWKq4PcwL63zmtq0AcqNilPapIvrg6qg2G89GJkeyzb-5wgiHUudKt8wlLSR3tCyOXM-Proa9dsLG_EJvj5sqhV7w5jutijDljdi_dz4DPnxEnJxgD7qSgYe0VCbwP5M43puMZcVq1D-D6wH1sFBAyhHZI0vQ687MT6Q7i6bdum2QL83c_kCEPBRLpxxn8mrX-yT0a07IrtfNIeeMFMrp_-HtAKpXUeLEQ8eC5hSFo3gROeAAjFlePS_793R2-XQyd17qGZXdWdJ_fdZaeCcmm2ozF5HslELjLwCXDWs9eg",
+  "payload": "e30"
+}
+2026-08-21 18:26:38,158:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "POST /acme/chall/3654263481/764232032061/qMse4A HTTP/1.1" 200 194
+2026-08-21 18:26:38,160:DEBUG:acme.client:Received response:
+HTTP 200
+Server: nginx
+Date: Fri, 21 Aug 2026 22:26:37 GMT
+Content-Type: application/json
+Content-Length: 194
+Connection: keep-alive
+Boulder-Requester: 3654263481
+Cache-Control: public, max-age=0, no-cache
+Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index", <https://acme-v02.api.letsencrypt.org/acme/authz/3654263481/764232032061>;rel="up"
+Location: https://acme-v02.api.letsencrypt.org/acme/chall/3654263481/764232032061/qMse4A
+Replay-Nonce: eGEELIRK5R2VaPzWjDsqqbEh-l2MmONTm2a1K8dfNC2zebd1W44
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+{
+  "type": "dns-01",
+  "url": "https://acme-v02.api.letsencrypt.org/acme/chall/3654263481/764232032061/qMse4A",
+  "status": "pending",
+  "token": "0xJaCABAPf7gdwcEAkqsKjYwbpCKPNRtbuosqopi6WA"
+}
+2026-08-21 18:26:38,162:DEBUG:acme.client:Storing nonce: eGEELIRK5R2VaPzWjDsqqbEh-l2MmONTm2a1K8dfNC2zebd1W44
+2026-08-21 18:26:38,163:INFO:certbot._internal.auth_handler:Waiting for verification...
+2026-08-21 18:26:39,165:DEBUG:acme.client:JWS payload:
+b''
+2026-08-21 18:26:39,168:DEBUG:acme.client:Sending POST request to https://acme-v02.api.letsencrypt.org/acme/authz/3654263481/764232032061:
+{
+  "protected": "eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2FjY3QvMzY1NDI2MzQ4MSIsICJub25jZSI6ICJlR0VFTElSSzVSMlZhUHpXakRzcXFiRWgtbDJNbU9OVG0yYTFLOGRmTkMyemViZDFXNDQiLCAidXJsIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2F1dGh6LzM2NTQyNjM0ODEvNzY0MjMyMDMyMDYxIn0",
+  "signature": "gHdDVy2BQwM30lxF-WQ7WhuEq3dNtCgTQDbX2hLAku8vCMz1bptEckUZkiFo_SxtEZkFA1XVzYpGqMiCKZ691wB61j4chFfgUFP0S1-kTXHs8NIrmvlx9XxCYeLUNNH2jTMB0vk2T5d8tiiKXtR7ssdbML9tsXfH4aJhs0l-e4-xutljCvL12_RWogSt4u6R1e_ED0nOmjP6U1iDrI6yMqcFtHkabpYuPi9jnXjalTmPjb_zanRZ3AzMmoaFEHrsiahSvP2lhKn6QCeIWK5xAibPgeLfjpe_nMFa8siV7KVP7yTWPuJQKriXZy-njcgl_eAopm353IC9qpGQr1L_tA",
+  "payload": ""
+}
+2026-08-21 18:26:39,236:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "POST /acme/authz/3654263481/764232032061 HTTP/1.1" 200 396
+2026-08-21 18:26:39,237:DEBUG:acme.client:Received response:
+HTTP 200
+Server: nginx
+Date: Fri, 21 Aug 2026 22:26:38 GMT
+Content-Type: application/json
+Content-Length: 396
+Connection: keep-alive
+Boulder-Requester: 3654263481
+Cache-Control: public, max-age=0, no-cache
+Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index"
+Replay-Nonce: b-KY26ia58nLuzlJu20MxlqSCeghiCgMCRztPGfoEIfbqHoX86c
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+{
+  "identifier": {
+    "type": "dns",
+    "value": "disdajoint.com"
+  },
+  "status": "pending",
+  "expires": "2026-08-28T22:24:31Z",
+  "challenges": [
+    {
+      "type": "dns-01",
+      "url": "https://acme-v02.api.letsencrypt.org/acme/chall/3654263481/764232032061/qMse4A",
+      "status": "pending",
+      "token": "0xJaCABAPf7gdwcEAkqsKjYwbpCKPNRtbuosqopi6WA"
+    }
+  ],
+  "wildcard": true
+}
+2026-08-21 18:26:39,239:DEBUG:acme.client:Storing nonce: b-KY26ia58nLuzlJu20MxlqSCeghiCgMCRztPGfoEIfbqHoX86c
+2026-08-21 18:26:42,241:DEBUG:acme.client:JWS payload:
+b''
+2026-08-21 18:26:42,244:DEBUG:acme.client:Sending POST request to https://acme-v02.api.letsencrypt.org/acme/authz/3654263481/764232032061:
+{
+  "protected": "eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2FjY3QvMzY1NDI2MzQ4MSIsICJub25jZSI6ICJiLUtZMjZpYTU4bkx1emxKdTIwTXhscVNDZWdoaUNnTUNSenRQR2ZvRUlmYnFIb1g4NmMiLCAidXJsIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2F1dGh6LzM2NTQyNjM0ODEvNzY0MjMyMDMyMDYxIn0",
+  "signature": "X2UwaUZoikWrE7nwpsPFnsT6jiiOA5A77mgXo4xXnUV9lrjK8olF_t__big85RtmBuF7GpICn4LI3hu_k4Y7tzickd3KjQEWkeDjUiOgESmSAbfy4ZYAQbRwg0exjH_MT2o7JmVj-CEV9gQJEk07i4XbG1EgdxNnBH8omj4SZTgzom14ViuoYm9EtMl0WAnUD5WQ6PTm67-vcIa5Gti1o8lL125R837V1OrIOtF8xcallaiHUAdHFI-T5-bRHHggaeJYK0iCWwhFadYx9znJ5GwttubUDpBB1BkGP1XFOVn2yJPr6SYiwGhtmCHT9kWPXLlLXv0ATz-2LTjYV2TvpA",
+  "payload": ""
+}
+2026-08-21 18:26:42,317:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "POST /acme/authz/3654263481/764232032061 HTTP/1.1" 200 822
+2026-08-21 18:26:42,319:DEBUG:acme.client:Received response:
+HTTP 200
+Server: nginx
+Date: Fri, 21 Aug 2026 22:26:41 GMT
+Content-Type: application/json
+Content-Length: 822
+Connection: keep-alive
+Boulder-Requester: 3654263481
+Cache-Control: public, max-age=0, no-cache
+Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index"
+Replay-Nonce: eGEELIRKIebYEEqHHkgRpOtXsF7R_pcG5jsu9EEFl-3k3bhaoW0
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+{
+  "identifier": {
+    "type": "dns",
+    "value": "disdajoint.com"
+  },
+  "status": "invalid",
+  "expires": "2026-08-28T22:24:31Z",
+  "challenges": [
+    {
+      "type": "dns-01",
+      "url": "https://acme-v02.api.letsencrypt.org/acme/chall/3654263481/764232032061/qMse4A",
+      "status": "invalid",
+      "validated": "2026-08-21T22:26:37Z",
+      "error": {
+        "type": "urn:ietf:params:acme:error:dns",
+        "detail": "DNS problem: looking up TXT for _acme-challenge.disdajoint.com: DNSSEC: DNSKEY Missing: validation failure \u003c_acme-challenge.disdajoint.com. TXT IN\u003e: No DNSKEY record [misc failure] from 162.159.25.42 for key disdajoint.com. while building chain of trust",
+        "status": 400
+      },
+      "token": "0xJaCABAPf7gdwcEAkqsKjYwbpCKPNRtbuosqopi6WA"
+    }
+  ],
+  "wildcard": true
+}
+2026-08-21 18:26:42,320:DEBUG:acme.client:Storing nonce: eGEELIRKIebYEEqHHkgRpOtXsF7R_pcG5jsu9EEFl-3k3bhaoW0
+2026-08-21 18:26:42,322:INFO:certbot._internal.auth_handler:Challenge failed for domain disdajoint.com
+2026-08-21 18:26:42,323:INFO:certbot._internal.auth_handler:dns-01 challenge for Identifier(typ=IdentifierType(dns), value='disdajoint.com')
+2026-08-21 18:26:42,324:DEBUG:certbot._internal.display.obj:Notifying user: 
+Certbot failed to authenticate some domains (authenticator: dns-hostinger). The Certificate Authority reported these problems:
+  Identifier: disdajoint.com
+  Type:   dns
+  Detail: DNS problem: looking up TXT for _acme-challenge.disdajoint.com: DNSSEC: DNSKEY Missing: validation failure <_acme-challenge.disdajoint.com. TXT IN>: No DNSKEY record [misc failure] from 162.159.25.42 for key disdajoint.com. while building chain of trust
+
+Hint: The Certificate Authority failed to verify the DNS TXT records created by --dns-hostinger. Ensure the above domains are hosted by this DNS provider, or try increasing --dns-hostinger-propagation-seconds (currently 120 seconds).
+
+2026-08-21 18:26:42,332:DEBUG:certbot._internal.error_handler:Encountered exception:
+Traceback (most recent call last):
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/auth_handler.py", line 104, in handle_authorizations
+    self._poll_authorizations(authzrs, max_retries, max_time_mins, best_effort)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/auth_handler.py", line 208, in _poll_authorizations
+    raise errors.AuthorizationError('Some challenges have failed.')
+certbot.errors.AuthorizationError: Some challenges have failed.
+
+2026-08-21 18:26:42,333:DEBUG:certbot._internal.error_handler:Calling registered functions
+2026-08-21 18:26:42,334:INFO:certbot._internal.auth_handler:Cleaning up challenges
+2026-08-21 18:26:42,336:DEBUG:certbot_dns_hostinger._internal.dns_hostinger:Starting DNS cleanup for domain: disdajoint.com
+2026-08-21 18:26:42,337:DEBUG:certbot_dns_hostinger._internal.dns_hostinger:Validation name: _acme-challenge.disdajoint.com
+2026-08-21 18:26:42,339:DEBUG:certbot_dns_hostinger._internal.dns_hostinger:Validation content: -XSW-4I3JzihAa844MsFposSFFgaTEPsUQTzoFVeFdk
+2026-08-21 18:26:42,340:INFO:certbot_dns_hostinger._internal.dns_hostinger:Getting Hostinger client
+2026-08-21 18:26:42,342:INFO:certbot_dns_hostinger._internal.dns_hostinger:Initializing Hostinger client
+2026-08-21 18:26:42,343:INFO:certbot_dns_hostinger._internal.dns_hostinger:Hostinger client initialized
+2026-08-21 18:26:42,344:INFO:certbot_dns_hostinger._internal.dns_hostinger:Deleting TXT record
+2026-08-21 18:26:42,346:INFO:certbot_dns_hostinger._internal.dns_hostinger:Initializing Hostinger API client
+2026-08-21 18:26:42,347:INFO:certbot_dns_hostinger._internal.dns_hostinger:Hostinger API client initialized
+2026-08-21 18:26:42,349:INFO:certbot_dns_hostinger._internal.dns_hostinger:Hostinger API client obtained
+2026-08-21 18:26:42,350:DEBUG:certbot_dns_hostinger._internal.dns_hostinger:Extracted root domain: disdajoint.com from disdajoint.com
+2026-08-21 18:26:42,352:DEBUG:certbot_dns_hostinger._internal.dns_hostinger:Deleting from root domain: disdajoint.com, subdomain: _acme-challenge
+2026-08-21 18:26:42,354:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): developers.hostinger.com:443
+2026-08-21 18:26:42,928:DEBUG:urllib3.connectionpool:https://developers.hostinger.com:443 "DELETE /api/dns/v1/zones/disdajoint.com HTTP/1.1" 200 None
+2026-08-21 18:26:42,930:INFO:certbot_dns_hostinger._internal.dns_hostinger:Successfully deleted TXT record _acme-challenge from disdajoint.com zone
+2026-08-21 18:26:42,934:INFO:certbot_dns_hostinger._internal.dns_hostinger:DNS challenge cleaned up successfully
+2026-08-21 18:26:42,936:DEBUG:certbot_dns_hostinger._internal.dns_hostinger:DNS cleanup completed for domain: disdajoint.com
+2026-08-21 18:26:42,945:DEBUG:certbot._internal.log:Exiting abnormally:
+Traceback (most recent call last):
+  File "/opt/certbot/bin/certbot", line 6, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/main.py", line 18, in main
+    return internal_main.main(cli_args)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/main.py", line 1886, in main
+    return config.func(config, plugins)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/main.py", line 1598, in certonly
+    lineage = _get_and_save_cert(le_client, config, sans, certname, lineage)
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/main.py", line 143, in _get_and_save_cert
+    lineage = le_client.obtain_and_enroll_certificate(sans, certname)
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/client.py", line 533, in obtain_and_enroll_certificate
+    cert, chain, key, _ = self.obtain_certificate(sans)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/client.py", line 434, in obtain_certificate
+    orderr = self._get_order_and_authorizations(csr.data, self.config.allow_subset_of_names)
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/client.py", line 512, in _get_order_and_authorizations
+    authzr = self.auth_handler.handle_authorizations(orderr, self.config, best_effort)
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/auth_handler.py", line 104, in handle_authorizations
+    self._poll_authorizations(authzrs, max_retries, max_time_mins, best_effort)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/auth_handler.py", line 208, in _poll_authorizations
+    raise errors.AuthorizationError('Some challenges have failed.')
+certbot.errors.AuthorizationError: Some challenges have failed.
+2026-08-21 18:26:42,955:ERROR:certbot._internal.log:Some challenges have failed.

@@ -1,0 +1,408 @@
+2026-08-21 18:18:08,222:DEBUG:certbot._internal.main:certbot version: 5.6.0
+2026-08-21 18:18:08,223:DEBUG:certbot._internal.main:Location of certbot entry point: /opt/certbot/bin/certbot
+2026-08-21 18:18:08,223:DEBUG:certbot._internal.main:Arguments: ['-n', '--config', '/etc/letsencrypt.ini', '--work-dir', '/tmp/letsencrypt-lib', '--logs-dir', '/data/logs', '--cert-name', 'npm-3', '--agree-tos', '-m', 'callmemrcarter@gmail.com', '--preferred-challenges', 'dns', '--domains', '*.disdajoint.com', '--authenticator', 'dns-cloudflare', '--dns-cloudflare-credentials', '/etc/letsencrypt/credentials/credentials-3', '--dns-cloudflare-propagation-seconds', '120', '--key-type', 'rsa']
+2026-08-21 18:18:08,223:DEBUG:certbot._internal.main:Discovered plugins: PluginsRegistry(PluginEntryPoint#dns-cloudflare,PluginEntryPoint#manual,PluginEntryPoint#null,PluginEntryPoint#standalone,PluginEntryPoint#webroot)
+2026-08-21 18:18:08,627:DEBUG:certbot._internal.log:Root logging level set at 30
+2026-08-21 18:18:08,648:DEBUG:certbot._internal.plugins.selection:Requested authenticator dns-cloudflare and installer None
+2026-08-21 18:18:08,649:DEBUG:certbot._internal.plugins.selection:Single candidate plugin: * dns-cloudflare
+Description: Obtain certificates using a DNS TXT record (if you are using Cloudflare for DNS).
+Interfaces: Authenticator, Plugin
+Entry point: EntryPoint(name='dns-cloudflare', value='certbot_dns_cloudflare._internal.dns_cloudflare:Authenticator', group='certbot.plugins')
+Initialized: <certbot_dns_cloudflare._internal.dns_cloudflare.Authenticator object at 0x7f59a06abcb0>
+Prep: True
+2026-08-21 18:18:08,651:DEBUG:certbot._internal.plugins.selection:Selected authenticator <certbot_dns_cloudflare._internal.dns_cloudflare.Authenticator object at 0x7f59a06abcb0> and installer None
+2026-08-21 18:18:08,652:INFO:certbot._internal.plugins.selection:Plugins selected: Authenticator dns-cloudflare, Installer None
+2026-08-21 18:18:08,752:DEBUG:certbot._internal.main:Picked account: <Account(RegistrationResource(body=Registration(key=None, contact=(), agreement=None, status=None, terms_of_service_agreed=None, only_return_existing=None, external_account_binding=None), uri='https://acme-v02.api.letsencrypt.org/acme/acct/3654263481', new_authzr_uri=None, terms_of_service=None), 8743f42096a4c8af8eaa58392df4f2c7, Meta(creation_dt=datetime.datetime(2026, 8, 21, 22, 4, 43, tzinfo=datetime.timezone.utc), creation_host='ea994d1c222d', register_to_eff=None))>
+2026-08-21 18:18:08,754:DEBUG:acme.client:Sending GET request to https://acme-v02.api.letsencrypt.org/directory.
+2026-08-21 18:18:08,763:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): acme-v02.api.letsencrypt.org:443
+2026-08-21 18:18:09,136:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "GET /directory HTTP/1.1" 200 961
+2026-08-21 18:18:09,139:DEBUG:acme.client:Received response:
+HTTP 200
+Server: nginx
+Date: Fri, 21 Aug 2026 22:18:08 GMT
+Content-Type: application/json
+Content-Length: 961
+Connection: keep-alive
+Cache-Control: public, max-age=0, no-cache
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+{
+  "PJapM6GlbUk": "https://community.letsencrypt.org/t/adding-random-entries-to-the-directory/33417",
+  "keyChange": "https://acme-v02.api.letsencrypt.org/acme/key-change",
+  "meta": {
+    "caaIdentities": [
+      "letsencrypt.org"
+    ],
+    "profiles": {
+      "classic": "https://letsencrypt.org/docs/profiles#classic",
+      "shortlived": "https://letsencrypt.org/docs/profiles#shortlived",
+      "tlsserver": "https://letsencrypt.org/docs/profiles#tlsserver"
+    },
+    "termsOfService": "https://letsencrypt.org/documents/LE-SA-v1.8-July-06-2026.pdf",
+    "website": "https://letsencrypt.org"
+  },
+  "newAccount": "https://acme-v02.api.letsencrypt.org/acme/new-acct",
+  "newNonce": "https://acme-v02.api.letsencrypt.org/acme/new-nonce",
+  "newOrder": "https://acme-v02.api.letsencrypt.org/acme/new-order",
+  "renewalInfo": "https://acme-v02.api.letsencrypt.org/acme/renewal-info",
+  "revokeCert": "https://acme-v02.api.letsencrypt.org/acme/revoke-cert"
+}
+2026-08-21 18:18:09,149:DEBUG:certbot._internal.display.obj:Notifying user: Requesting a certificate for *.disdajoint.com
+2026-08-21 18:18:09,250:DEBUG:acme.client:Requesting fresh nonce
+2026-08-21 18:18:09,251:DEBUG:acme.client:Sending HEAD request to https://acme-v02.api.letsencrypt.org/acme/new-nonce.
+2026-08-21 18:18:09,340:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "HEAD /acme/new-nonce HTTP/1.1" 200 0
+2026-08-21 18:18:09,341:DEBUG:acme.client:Received response:
+HTTP 200
+Server: nginx
+Date: Fri, 21 Aug 2026 22:18:08 GMT
+Connection: keep-alive
+Cache-Control: public, max-age=0, no-cache
+Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index"
+Replay-Nonce: HaINB7g5lmS28mxoenclrs4fzKvMjx072sHEREYQUrmsO28VIEc
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+
+2026-08-21 18:18:09,343:DEBUG:acme.client:Storing nonce: HaINB7g5lmS28mxoenclrs4fzKvMjx072sHEREYQUrmsO28VIEc
+2026-08-21 18:18:09,344:DEBUG:acme.client:JWS payload:
+b'{\n  "identifiers": [\n    {\n      "type": "dns",\n      "value": "*.disdajoint.com"\n    }\n  ]\n}'
+2026-08-21 18:18:09,348:DEBUG:acme.client:Sending POST request to https://acme-v02.api.letsencrypt.org/acme/new-order:
+{
+  "protected": "eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2FjY3QvMzY1NDI2MzQ4MSIsICJub25jZSI6ICJIYUlOQjdnNWxtUzI4bXhvZW5jbHJzNGZ6S3ZNangwNzJzSEVSRVlRVXJtc08yOFZJRWMiLCAidXJsIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL25ldy1vcmRlciJ9",
+  "signature": "HOjyACK6oALIAonymqCmwx3r75WyOsLSnPZoPIonpHhmk8AGjs02Ijid9aZIZCmZIpVosxdQl1cncHYSTql8SyI_c7SoUvDwWY9UhkSGSwxdyNsXWeRHf_I72RhVgzdWYQxkATzJvsIadHZxQufGDzPBPiYfl7n4E7vYVsEtDWQD56NLW2ZJALExqWtXO7QgD1N7svQGhPRJHFy85t4LCmRWkdXrFK3op5bqINy5_OPjypCnTZ18R0rH98psf5mkZqm5U5Y-4PzNeVe0CR_f_Ruj6HoDFz5EDUiVUvuLYd6GuPGPI0t9xzerpfTUTMaKhm84OCPUqx_5oNX7HruyOw",
+  "payload": "ewogICJpZGVudGlmaWVycyI6IFsKICAgIHsKICAgICAgInR5cGUiOiAiZG5zIiwKICAgICAgInZhbHVlIjogIiouZGlzZGFqb2ludC5jb20iCiAgICB9CiAgXQp9"
+}
+2026-08-21 18:18:09,548:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "POST /acme/new-order HTTP/1.1" 201 350
+2026-08-21 18:18:09,550:DEBUG:acme.client:Received response:
+HTTP 201
+Server: nginx
+Date: Fri, 21 Aug 2026 22:18:08 GMT
+Content-Type: application/json
+Content-Length: 350
+Connection: keep-alive
+Boulder-Requester: 3654263481
+Cache-Control: public, max-age=0, no-cache
+Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index"
+Location: https://acme-v02.api.letsencrypt.org/acme/order/3654263481/547812933941
+Replay-Nonce: HaINB7g5jwh5jN40dUOXnJrD7rP2Gh0QUTB7p7tAl7rXE0G7JgQ
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+{
+  "status": "pending",
+  "expires": "2026-08-28T22:18:08Z",
+  "identifiers": [
+    {
+      "type": "dns",
+      "value": "*.disdajoint.com"
+    }
+  ],
+  "authorizations": [
+    "https://acme-v02.api.letsencrypt.org/acme/authz/3654263481/764229068531"
+  ],
+  "finalize": "https://acme-v02.api.letsencrypt.org/acme/finalize/3654263481/547812933941"
+}
+2026-08-21 18:18:09,551:DEBUG:acme.client:Storing nonce: HaINB7g5jwh5jN40dUOXnJrD7rP2Gh0QUTB7p7tAl7rXE0G7JgQ
+2026-08-21 18:18:09,553:DEBUG:acme.client:JWS payload:
+b''
+2026-08-21 18:18:09,556:DEBUG:acme.client:Sending POST request to https://acme-v02.api.letsencrypt.org/acme/authz/3654263481/764229068531:
+{
+  "protected": "eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2FjY3QvMzY1NDI2MzQ4MSIsICJub25jZSI6ICJIYUlOQjdnNWp3aDVqTjQwZFVPWG5KckQ3clAyR2gwUVVUQjdwN3RBbDdyWEUwRzdKZ1EiLCAidXJsIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2F1dGh6LzM2NTQyNjM0ODEvNzY0MjI5MDY4NTMxIn0",
+  "signature": "E8xoSmknkYaeLm2khdpS9omhIQy1UY4Z3xlcNRmUk2XyRhM0gERLpa8TtEpIdFkI0qyZIZx9oUE11RAEiBljNn1snmi_tLG6m9gGFp39OdLH5UWT_qDmHqS0Mlc3quIkE70MgARVWzYq5pvpxft3cELNrKEkcbynuygHoy86OMJHLvLqlyfPj6fI7L49F9ebSb5DeIc61EVyRSsnlXGwMX4iSqjBQE_9e_7Bsz3kbinkvZM-kU5M-dCfsbv0HIyDTEI7z14cILQ6iaEYIYD3oCD5iZ9gK3Gu-a443FsZY5cD0W7QFFzr1SJPGGLeqODcu3Zz4lZFNcAiaJgsIUYNkg",
+  "payload": ""
+}
+2026-08-21 18:18:09,650:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "POST /acme/authz/3654263481/764229068531 HTTP/1.1" 200 396
+2026-08-21 18:18:09,651:DEBUG:acme.client:Received response:
+HTTP 200
+Server: nginx
+Date: Fri, 21 Aug 2026 22:18:08 GMT
+Content-Type: application/json
+Content-Length: 396
+Connection: keep-alive
+Boulder-Requester: 3654263481
+Cache-Control: public, max-age=0, no-cache
+Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index"
+Replay-Nonce: HaINB7g5uV2akMq8imoarB2LbvIKq6AgcsGpqsu64-vDEWbJIGU
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+{
+  "identifier": {
+    "type": "dns",
+    "value": "disdajoint.com"
+  },
+  "status": "pending",
+  "expires": "2026-08-28T22:18:08Z",
+  "challenges": [
+    {
+      "type": "dns-01",
+      "url": "https://acme-v02.api.letsencrypt.org/acme/chall/3654263481/764229068531/R1PqNA",
+      "status": "pending",
+      "token": "qWSTE0kYkoJ56CmDf2npFrKT94DzuHHO0kyLgTK0zlk"
+    }
+  ],
+  "wildcard": true
+}
+2026-08-21 18:18:09,653:DEBUG:acme.client:Storing nonce: HaINB7g5uV2akMq8imoarB2LbvIKq6AgcsGpqsu64-vDEWbJIGU
+2026-08-21 18:18:09,655:INFO:certbot._internal.auth_handler:Performing the following challenges:
+2026-08-21 18:18:09,656:INFO:certbot._internal.auth_handler:dns-01 challenge for Identifier(typ=IdentifierType(dns), value='disdajoint.com')
+2026-08-21 18:18:09,815:DEBUG:cloudflare._base_client:Request options: {'method': 'get', 'url': '/zones', 'params': {'name': 'disdajoint.com', 'per_page': 1}, 'post_parser': <function SyncAPIClient._request_api_list.<locals>._parser at 0x7f599f3a31a0>, 'content': None, 'json_data': None}
+2026-08-21 18:18:09,820:DEBUG:cloudflare._base_client:Sending HTTP Request: GET https://api.cloudflare.com/client/v4/zones?name=disdajoint.com&per_page=1
+2026-08-21 18:18:09,822:DEBUG:httpcore.connection:connect_tcp.started host='api.cloudflare.com' port=443 local_address=None timeout=5.0 socket_options=None
+2026-08-21 18:18:09,868:DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f599f4fe510>
+2026-08-21 18:18:09,869:DEBUG:httpcore.connection:start_tls.started ssl_context=<pip._vendor.truststore._api.SSLContext object at 0x7f599f472840> server_hostname='api.cloudflare.com' timeout=5.0
+2026-08-21 18:18:09,914:DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f599f3bca50>
+2026-08-21 18:18:09,916:DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+2026-08-21 18:18:09,918:DEBUG:httpcore.http11:send_request_headers.complete
+2026-08-21 18:18:09,920:DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+2026-08-21 18:18:09,921:DEBUG:httpcore.http11:send_request_body.complete
+2026-08-21 18:18:09,922:DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+2026-08-21 18:18:10,192:DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 21 Aug 2026 22:18:09 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Set-Cookie', b'__cflb=04dTob1Z8hkaUxg6DoSzyuYaXLsKuLfiAQqA4RXMAV; HttpOnly; SameSite=None; Secure; Path=/; Expires=Sat, 22 Aug 2026 00:48:10 GMT'), (b'set-cookie', b'__cf_bm=1SYw99Bms2LvViUmqDKBeCTGP9a8VR2G.y0z7qZCp2I-1787350689.016956-1.0.1.1-Q7UAKgabTkZ5LaTjwDb8upZC4sI2fUpaP3u_uPRlJGbomKMC2xb_XDldwOQ2_VNIK8AXpL4Oe5WZ0sMKdAe_T0xKG.uZPWI2ySw0Yazkeen2Mf0DypczKCHvJ0CtCjoh; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.cloudflare.com; Expires=Fri, 21 Aug 2026 22:48:09 GMT'), (b'CF-Ray', b'a2ed030e5ccf1c63-ATL'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Cache-Control', b'no-store, no-cache, must-revalidate, post-check=0, pre-check=0'), (b'Content-Encoding', b'gzip'), (b'Expires', b'Sun, 25 Jan 1981 05:00:00 GMT'), (b'Server', b'cloudflare'), (b'cf-auditlog-id', b'01a02667-2500-791d-ae00-2fe7836f669c'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'Vary', b'Accept-Encoding'), (b'Pragma', b'no-cache'), (b'Ratelimit', b'"list_zones";r=1200;t=1'), (b'Ratelimit-Policy', b'"list_zones";q=1201;w=300'), (b'X-Content-Type-Options', b'nosniff'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'api-version', b'2026-09-25.epoch')])
+2026-08-21 18:18:10,196:INFO:httpx:HTTP Request: GET https://api.cloudflare.com/client/v4/zones?name=disdajoint.com&per_page=1 "HTTP/1.1 200 OK"
+2026-08-21 18:18:10,197:DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+2026-08-21 18:18:10,199:DEBUG:httpcore.http11:receive_response_body.complete
+2026-08-21 18:18:10,201:DEBUG:httpcore.http11:response_closed.started
+2026-08-21 18:18:10,202:DEBUG:httpcore.http11:response_closed.complete
+2026-08-21 18:18:10,204:DEBUG:cloudflare._base_client:HTTP Response: GET https://api.cloudflare.com/client/v4/zones?name=disdajoint.com&per_page=1 "200 OK" Headers([('date', 'Fri, 21 Aug 2026 22:18:09 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('set-cookie', '__cflb=04dTob1Z8hkaUxg6DoSzyuYaXLsKuLfiAQqA4RXMAV; HttpOnly; SameSite=None; Secure; Path=/; Expires=Sat, 22 Aug 2026 00:48:10 GMT'), ('set-cookie', '__cf_bm=1SYw99Bms2LvViUmqDKBeCTGP9a8VR2G.y0z7qZCp2I-1787350689.016956-1.0.1.1-Q7UAKgabTkZ5LaTjwDb8upZC4sI2fUpaP3u_uPRlJGbomKMC2xb_XDldwOQ2_VNIK8AXpL4Oe5WZ0sMKdAe_T0xKG.uZPWI2ySw0Yazkeen2Mf0DypczKCHvJ0CtCjoh; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.cloudflare.com; Expires=Fri, 21 Aug 2026 22:48:09 GMT'), ('cf-ray', 'a2ed030e5ccf1c63-ATL'), ('cf-cache-status', 'DYNAMIC'), ('cache-control', 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0'), ('content-encoding', 'gzip'), ('expires', 'Sun, 25 Jan 1981 05:00:00 GMT'), ('server', 'cloudflare'), ('cf-auditlog-id', '01a02667-2500-791d-ae00-2fe7836f669c'), ('strict-transport-security', 'max-age=31536000'), ('vary', 'Accept-Encoding'), ('pragma', 'no-cache'), ('ratelimit', '"list_zones";r=1200;t=1'), ('ratelimit-policy', '"list_zones";q=1201;w=300'), ('x-content-type-options', 'nosniff'), ('x-frame-options', 'SAMEORIGIN'), ('api-version', '2026-09-25.epoch')])
+2026-08-21 18:18:10,216:DEBUG:certbot_dns_cloudflare._internal.dns_cloudflare:Found zone_id of 0ea2e06a06edab9e8c1436698c71c570 for disdajoint.com using name disdajoint.com
+2026-08-21 18:18:10,217:DEBUG:certbot_dns_cloudflare._internal.dns_cloudflare:Attempting to add record to zone 0ea2e06a06edab9e8c1436698c71c570: {'type': 'TXT', 'name': '_acme-challenge.disdajoint.com', 'content': '2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc', 'ttl': 120}
+2026-08-21 18:18:10,507:DEBUG:cloudflare._base_client:Request options: {'method': 'post', 'url': '/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records', 'params': {}, 'files': None, 'idempotency_key': 'stainless-python-retry-bd5966eb-0828-4755-a99a-2ca01b9aac1b', 'post_parser': <function ResultWrapper._unwrapper at 0x7f599f349940>, 'content': None, 'json_data': {'name': '_acme-challenge.disdajoint.com', 'ttl': 120, 'type': 'TXT', 'content': '2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc'}}
+2026-08-21 18:18:10,509:DEBUG:cloudflare._base_client:Sending HTTP Request: POST https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records
+2026-08-21 18:18:10,510:DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+2026-08-21 18:18:10,512:DEBUG:httpcore.http11:send_request_headers.complete
+2026-08-21 18:18:10,513:DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+2026-08-21 18:18:10,515:DEBUG:httpcore.http11:send_request_body.complete
+2026-08-21 18:18:10,516:DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+2026-08-21 18:18:10,691:DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 21 Aug 2026 22:18:09 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'cf-auditlog-id', b'01a02667-274f-7889-8ad1-dcbcca331ef1'), (b'CF-Ray', b'a2ed031208c41c63-ATL'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'Vary', b'Accept-Encoding'), (b'Ratelimit', b'"default";r=1199;t=1'), (b'Ratelimit-Policy', b'"default";q=1200;w=300'), (b'api-version', b'2026-09-25.epoch')])
+2026-08-21 18:18:10,693:INFO:httpx:HTTP Request: POST https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records "HTTP/1.1 200 OK"
+2026-08-21 18:18:10,694:DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+2026-08-21 18:18:10,696:DEBUG:httpcore.http11:receive_response_body.complete
+2026-08-21 18:18:10,697:DEBUG:httpcore.http11:response_closed.started
+2026-08-21 18:18:10,699:DEBUG:httpcore.http11:response_closed.complete
+2026-08-21 18:18:10,700:DEBUG:cloudflare._base_client:HTTP Response: POST https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records "200 OK" Headers({'date': 'Fri, 21 Aug 2026 22:18:09 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cf-auditlog-id': '01a02667-274f-7889-8ad1-dcbcca331ef1', 'cf-ray': 'a2ed031208c41c63-ATL', 'cf-cache-status': 'DYNAMIC', 'content-encoding': 'gzip', 'server': 'cloudflare', 'vary': 'Accept-Encoding', 'ratelimit': '"default";r=1199;t=1', 'ratelimit-policy': '"default";q=1200;w=300', 'api-version': '2026-09-25.epoch'})
+2026-08-21 18:18:10,782:DEBUG:cloudflare._base_client:Request options: {'method': 'get', 'url': '/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records', 'params': {'content': {'exact': '2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc'}, 'name': {'exact': '_acme-challenge.disdajoint.com'}, 'per_page': 1, 'type': 'TXT'}, 'post_parser': <function SyncAPIClient._request_api_list.<locals>._parser at 0x7f599f66ae80>, 'content': None, 'json_data': None}
+2026-08-21 18:18:10,785:DEBUG:cloudflare._base_client:Sending HTTP Request: GET https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records?content.exact=2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc&name.exact=_acme-challenge.disdajoint.com&per_page=1&type=TXT
+2026-08-21 18:18:10,787:DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+2026-08-21 18:18:10,789:DEBUG:httpcore.http11:send_request_headers.complete
+2026-08-21 18:18:10,790:DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+2026-08-21 18:18:10,791:DEBUG:httpcore.http11:send_request_body.complete
+2026-08-21 18:18:10,793:DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+2026-08-21 18:18:11,014:DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 21 Aug 2026 22:18:10 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'cf-auditlog-id', b'01a02667-2867-7a00-a268-da6283b99cd7'), (b'CF-Ray', b'a2ed0313ce9a1c63-ATL'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'Vary', b'Accept-Encoding'), (b'Ratelimit', b'"default";r=1199;t=1'), (b'Ratelimit-Policy', b'"default";q=1200;w=300'), (b'api-version', b'2026-09-25.epoch')])
+2026-08-21 18:18:11,016:INFO:httpx:HTTP Request: GET https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records?content.exact=2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc&name.exact=_acme-challenge.disdajoint.com&per_page=1&type=TXT "HTTP/1.1 200 OK"
+2026-08-21 18:18:11,018:DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+2026-08-21 18:18:11,019:DEBUG:httpcore.http11:receive_response_body.complete
+2026-08-21 18:18:11,021:DEBUG:httpcore.http11:response_closed.started
+2026-08-21 18:18:11,022:DEBUG:httpcore.http11:response_closed.complete
+2026-08-21 18:18:11,024:DEBUG:cloudflare._base_client:HTTP Response: GET https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records?content.exact=2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc&name.exact=_acme-challenge.disdajoint.com&per_page=1&type=TXT "200 OK" Headers({'date': 'Fri, 21 Aug 2026 22:18:10 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cf-auditlog-id': '01a02667-2867-7a00-a268-da6283b99cd7', 'cf-ray': 'a2ed0313ce9a1c63-ATL', 'cf-cache-status': 'DYNAMIC', 'content-encoding': 'gzip', 'server': 'cloudflare', 'vary': 'Accept-Encoding', 'ratelimit': '"default";r=1199;t=1', 'ratelimit-policy': '"default";q=1200;w=300', 'api-version': '2026-09-25.epoch'})
+2026-08-21 18:18:11,068:DEBUG:cloudflare._base_client:Request options: {'method': 'get', 'url': '/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records', 'params': {'content': {'exact': '2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc'}, 'name': {'exact': '_acme-challenge.disdajoint.com'}, 'per_page': 1, 'type': 'TXT', 'page': 2}, 'post_parser': <function SyncAPIClient._request_api_list.<locals>._parser at 0x7f599f379ee0>, 'content': None, 'json_data': None}
+2026-08-21 18:18:11,071:DEBUG:cloudflare._base_client:Sending HTTP Request: GET https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records?content.exact=2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc&name.exact=_acme-challenge.disdajoint.com&per_page=1&type=TXT&page=2
+2026-08-21 18:18:11,073:DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+2026-08-21 18:18:11,074:DEBUG:httpcore.http11:send_request_headers.complete
+2026-08-21 18:18:11,076:DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+2026-08-21 18:18:11,077:DEBUG:httpcore.http11:send_request_body.complete
+2026-08-21 18:18:11,078:DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+2026-08-21 18:18:11,224:DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 21 Aug 2026 22:18:10 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'cf-auditlog-id', b'01a02667-2983-772e-afef-753f8457bae7'), (b'CF-Ray', b'a2ed03159c141c63-ATL'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'Vary', b'Accept-Encoding'), (b'Ratelimit', b'"default";r=1199;t=1'), (b'Ratelimit-Policy', b'"default";q=1200;w=300'), (b'api-version', b'2026-09-25.epoch')])
+2026-08-21 18:18:11,226:INFO:httpx:HTTP Request: GET https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records?content.exact=2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc&name.exact=_acme-challenge.disdajoint.com&per_page=1&type=TXT&page=2 "HTTP/1.1 200 OK"
+2026-08-21 18:18:11,228:DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+2026-08-21 18:18:11,229:DEBUG:httpcore.http11:receive_response_body.complete
+2026-08-21 18:18:11,230:DEBUG:httpcore.http11:response_closed.started
+2026-08-21 18:18:11,232:DEBUG:httpcore.http11:response_closed.complete
+2026-08-21 18:18:11,233:DEBUG:cloudflare._base_client:HTTP Response: GET https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records?content.exact=2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc&name.exact=_acme-challenge.disdajoint.com&per_page=1&type=TXT&page=2 "200 OK" Headers({'date': 'Fri, 21 Aug 2026 22:18:10 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cf-auditlog-id': '01a02667-2983-772e-afef-753f8457bae7', 'cf-ray': 'a2ed03159c141c63-ATL', 'cf-cache-status': 'DYNAMIC', 'content-encoding': 'gzip', 'server': 'cloudflare', 'vary': 'Accept-Encoding', 'ratelimit': '"default";r=1199;t=1', 'ratelimit-policy': '"default";q=1200;w=300', 'api-version': '2026-09-25.epoch'})
+2026-08-21 18:18:11,235:DEBUG:certbot_dns_cloudflare._internal.dns_cloudflare:Successfully added TXT record with record_id: cd4ccbddb0647c9b0674da1b27f8340c
+2026-08-21 18:18:11,237:DEBUG:certbot._internal.display.obj:Notifying user: Waiting 120 seconds for DNS changes to propagate
+2026-08-21 18:20:11,230:DEBUG:acme.client:JWS payload:
+b'{}'
+2026-08-21 18:20:11,233:DEBUG:acme.client:Sending POST request to https://acme-v02.api.letsencrypt.org/acme/chall/3654263481/764229068531/R1PqNA:
+{
+  "protected": "eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2FjY3QvMzY1NDI2MzQ4MSIsICJub25jZSI6ICJIYUlOQjdnNXVWMmFrTXE4aW1vYXJCMkxidklLcTZBZ2NzR3Bxc3U2NC12REVXYkpJR1UiLCAidXJsIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2NoYWxsLzM2NTQyNjM0ODEvNzY0MjI5MDY4NTMxL1IxUHFOQSJ9",
+  "signature": "XXVYwQ2zZl62apHCn4JxVBrd_F1TtKfGyuyIht1P5qYAu8vAfZwdD439WFWp9ONltIXpSroy6_1z88H9oi0ZTPFAzekPcVsJZ40ZTmLlAL_RMaUrDGiGWfx_NG76YfRMVKotrNdObSQdxcICjQuMWtJfESPxuftHShALspH_BVyI6y2HgGS2y20JDPgsnf4QxF-12hL6sN11jo8ofdOzp2pMVu9wwfWCK-FDX3vb7x05cgwfj4ZHU6I-sWlEKDHO8sc5er3estshRyQI_5L00Al3WSLEFytLDTNAVDs-QYbyOvMj0G4R--3hLxCXztqSyFOJEvRswgfmGJiuVotIIg",
+  "payload": "e30"
+}
+2026-08-21 18:20:11,319:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "POST /acme/chall/3654263481/764229068531/R1PqNA HTTP/1.1" 200 194
+2026-08-21 18:20:11,321:DEBUG:acme.client:Received response:
+HTTP 200
+Server: nginx
+Date: Fri, 21 Aug 2026 22:20:10 GMT
+Content-Type: application/json
+Content-Length: 194
+Connection: keep-alive
+Boulder-Requester: 3654263481
+Cache-Control: public, max-age=0, no-cache
+Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index", <https://acme-v02.api.letsencrypt.org/acme/authz/3654263481/764229068531>;rel="up"
+Location: https://acme-v02.api.letsencrypt.org/acme/chall/3654263481/764229068531/R1PqNA
+Replay-Nonce: HaINB7g5ZOS9V1ZdGRra8YmbWeUI5B2Dqh7IU8m5ZBkHosMTJB8
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+{
+  "type": "dns-01",
+  "url": "https://acme-v02.api.letsencrypt.org/acme/chall/3654263481/764229068531/R1PqNA",
+  "status": "pending",
+  "token": "qWSTE0kYkoJ56CmDf2npFrKT94DzuHHO0kyLgTK0zlk"
+}
+2026-08-21 18:20:11,322:DEBUG:acme.client:Storing nonce: HaINB7g5ZOS9V1ZdGRra8YmbWeUI5B2Dqh7IU8m5ZBkHosMTJB8
+2026-08-21 18:20:11,324:INFO:certbot._internal.auth_handler:Waiting for verification...
+2026-08-21 18:20:12,326:DEBUG:acme.client:JWS payload:
+b''
+2026-08-21 18:20:12,329:DEBUG:acme.client:Sending POST request to https://acme-v02.api.letsencrypt.org/acme/authz/3654263481/764229068531:
+{
+  "protected": "eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2FjY3QvMzY1NDI2MzQ4MSIsICJub25jZSI6ICJIYUlOQjdnNVpPUzlWMVpkR1JyYThZbWJXZVVJNUIyRHFoN0lVOG01WkJrSG9zTVRKQjgiLCAidXJsIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2F1dGh6LzM2NTQyNjM0ODEvNzY0MjI5MDY4NTMxIn0",
+  "signature": "lDFuKvNu3h9Z5uJHE0zZlBhgeg5_P3cHWpXrL6Jbg7Gt0mteQiYs3xUl2w9Evin-tvecbngAND-Q7Teu9_2uNbDwrOikvRjUeP-99Ppymes1btWCGz-zNB1D5QlGUrOfwFMPnkWufdR2wEkEJLFJ7E8-qcBrQPVIVnpPmJy-hpL6QZBWfLQy82Gj2Mf12nqnQ0tiK9FshE_w2afcrh-fYOYao0CPtTlXYrTKPZtwH3DtAQ9YMHC14SRl8-iOZhWjvqI3Hw5oIZZDMvTcpTv4rWQITyZsex7Xl-6IKZPbEacBL3SFF0yi9vxhnZajUYJyNGvmiOc5RV1uIHmH3y4ukw",
+  "payload": ""
+}
+2026-08-21 18:20:12,424:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "POST /acme/authz/3654263481/764229068531 HTTP/1.1" 200 832
+2026-08-21 18:20:12,426:DEBUG:acme.client:Received response:
+HTTP 200
+Server: nginx
+Date: Fri, 21 Aug 2026 22:20:11 GMT
+Content-Type: application/json
+Content-Length: 832
+Connection: keep-alive
+Boulder-Requester: 3654263481
+Cache-Control: public, max-age=0, no-cache
+Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index"
+Replay-Nonce: v2Fy5ijvep8OwErOA-zVO07sR9EzbgKyywg4LwcCvw0sRBM0eYc
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+{
+  "identifier": {
+    "type": "dns",
+    "value": "disdajoint.com"
+  },
+  "status": "invalid",
+  "expires": "2026-08-28T22:18:08Z",
+  "challenges": [
+    {
+      "type": "dns-01",
+      "url": "https://acme-v02.api.letsencrypt.org/acme/chall/3654263481/764229068531/R1PqNA",
+      "status": "invalid",
+      "validated": "2026-08-21T22:20:10Z",
+      "error": {
+        "type": "urn:ietf:params:acme:error:dns",
+        "detail": "DNS problem: looking up TXT for _acme-challenge.disdajoint.com: DNSSEC: DNSKEY Missing: validation failure \u003c_acme-challenge.disdajoint.com. TXT IN\u003e: No DNSKEY record [misc failure] from 2a06:98c1:50::ac40:23cc for key disdajoint.com. while building chain of trust",
+        "status": 400
+      },
+      "token": "qWSTE0kYkoJ56CmDf2npFrKT94DzuHHO0kyLgTK0zlk"
+    }
+  ],
+  "wildcard": true
+}
+2026-08-21 18:20:12,427:DEBUG:acme.client:Storing nonce: v2Fy5ijvep8OwErOA-zVO07sR9EzbgKyywg4LwcCvw0sRBM0eYc
+2026-08-21 18:20:12,429:INFO:certbot._internal.auth_handler:Challenge failed for domain disdajoint.com
+2026-08-21 18:20:12,430:INFO:certbot._internal.auth_handler:dns-01 challenge for Identifier(typ=IdentifierType(dns), value='disdajoint.com')
+2026-08-21 18:20:12,432:DEBUG:certbot._internal.display.obj:Notifying user: 
+Certbot failed to authenticate some domains (authenticator: dns-cloudflare). The Certificate Authority reported these problems:
+  Identifier: disdajoint.com
+  Type:   dns
+  Detail: DNS problem: looking up TXT for _acme-challenge.disdajoint.com: DNSSEC: DNSKEY Missing: validation failure <_acme-challenge.disdajoint.com. TXT IN>: No DNSKEY record [misc failure] from 2a06:98c1:50::ac40:23cc for key disdajoint.com. while building chain of trust
+
+Hint: The Certificate Authority failed to verify the DNS TXT records created by --dns-cloudflare. Ensure the above domains are hosted by this DNS provider, or try increasing --dns-cloudflare-propagation-seconds (currently 120 seconds).
+
+2026-08-21 18:20:12,438:DEBUG:certbot._internal.error_handler:Encountered exception:
+Traceback (most recent call last):
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/auth_handler.py", line 104, in handle_authorizations
+    self._poll_authorizations(authzrs, max_retries, max_time_mins, best_effort)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/auth_handler.py", line 208, in _poll_authorizations
+    raise errors.AuthorizationError('Some challenges have failed.')
+certbot.errors.AuthorizationError: Some challenges have failed.
+
+2026-08-21 18:20:12,439:DEBUG:certbot._internal.error_handler:Calling registered functions
+2026-08-21 18:20:12,441:INFO:certbot._internal.auth_handler:Cleaning up challenges
+2026-08-21 18:20:12,460:DEBUG:cloudflare._base_client:Request options: {'method': 'get', 'url': '/zones', 'params': {'name': 'disdajoint.com', 'per_page': 1}, 'post_parser': <function SyncAPIClient._request_api_list.<locals>._parser at 0x7f599ed682c0>, 'content': None, 'json_data': None}
+2026-08-21 18:20:12,462:DEBUG:cloudflare._base_client:Sending HTTP Request: GET https://api.cloudflare.com/client/v4/zones?name=disdajoint.com&per_page=1
+2026-08-21 18:20:12,464:DEBUG:httpcore.connection:connect_tcp.started host='api.cloudflare.com' port=443 local_address=None timeout=5.0 socket_options=None
+2026-08-21 18:20:12,492:DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f599eec9590>
+2026-08-21 18:20:12,493:DEBUG:httpcore.connection:start_tls.started ssl_context=<pip._vendor.truststore._api.SSLContext object at 0x7f599ef827b0> server_hostname='api.cloudflare.com' timeout=5.0
+2026-08-21 18:20:12,568:DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f599ed58b00>
+2026-08-21 18:20:12,571:DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+2026-08-21 18:20:12,573:DEBUG:httpcore.http11:send_request_headers.complete
+2026-08-21 18:20:12,574:DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+2026-08-21 18:20:12,576:DEBUG:httpcore.http11:send_request_body.complete
+2026-08-21 18:20:12,577:DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+2026-08-21 18:20:12,786:DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 21 Aug 2026 22:20:11 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Set-Cookie', b'__cflb=04dTob1Z8hkaUxg6DoSzyuYaXLsKuLfhAEzZ5zPciH; HttpOnly; SameSite=None; Secure; Path=/; Expires=Sat, 22 Aug 2026 00:50:12 GMT'), (b'set-cookie', b'__cf_bm=3qLOPgWF3sOhXaiO_Geo4HNHfXYCntG_bGbLCPvSWVI-1787350811.6741242-1.0.1.1-CQFgp6hqdoENR_cq9yaebmxnlhm3s5zhKOXFPngcrYzHbJQ_Dk9hnUUQN8WRjcHHmLRdplkio5heWkoc1ECjdokfTw85ECk2lny.EZfjRd59sQAVKELTv0X2E3gF2THq; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.cloudflare.com; Expires=Fri, 21 Aug 2026 22:50:11 GMT'), (b'CF-Ray', b'a2ed060cfb580d89-ATL'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Cache-Control', b'no-store, no-cache, must-revalidate, post-check=0, pre-check=0'), (b'Content-Encoding', b'gzip'), (b'Expires', b'Sun, 25 Jan 1981 05:00:00 GMT'), (b'Server', b'cloudflare'), (b'cf-auditlog-id', b'01a02669-0420-7369-a61e-855be75ee987'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'Vary', b'Accept-Encoding'), (b'Pragma', b'no-cache'), (b'Ratelimit', b'"list_zones";r=1200;t=1'), (b'Ratelimit-Policy', b'"list_zones";q=1201;w=300'), (b'X-Content-Type-Options', b'nosniff'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'api-version', b'2026-09-25.epoch')])
+2026-08-21 18:20:12,788:INFO:httpx:HTTP Request: GET https://api.cloudflare.com/client/v4/zones?name=disdajoint.com&per_page=1 "HTTP/1.1 200 OK"
+2026-08-21 18:20:12,790:DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+2026-08-21 18:20:12,791:DEBUG:httpcore.http11:receive_response_body.complete
+2026-08-21 18:20:12,793:DEBUG:httpcore.http11:response_closed.started
+2026-08-21 18:20:12,794:DEBUG:httpcore.http11:response_closed.complete
+2026-08-21 18:20:12,796:DEBUG:cloudflare._base_client:HTTP Response: GET https://api.cloudflare.com/client/v4/zones?name=disdajoint.com&per_page=1 "200 OK" Headers([('date', 'Fri, 21 Aug 2026 22:20:11 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('set-cookie', '__cflb=04dTob1Z8hkaUxg6DoSzyuYaXLsKuLfhAEzZ5zPciH; HttpOnly; SameSite=None; Secure; Path=/; Expires=Sat, 22 Aug 2026 00:50:12 GMT'), ('set-cookie', '__cf_bm=3qLOPgWF3sOhXaiO_Geo4HNHfXYCntG_bGbLCPvSWVI-1787350811.6741242-1.0.1.1-CQFgp6hqdoENR_cq9yaebmxnlhm3s5zhKOXFPngcrYzHbJQ_Dk9hnUUQN8WRjcHHmLRdplkio5heWkoc1ECjdokfTw85ECk2lny.EZfjRd59sQAVKELTv0X2E3gF2THq; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.cloudflare.com; Expires=Fri, 21 Aug 2026 22:50:11 GMT'), ('cf-ray', 'a2ed060cfb580d89-ATL'), ('cf-cache-status', 'DYNAMIC'), ('cache-control', 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0'), ('content-encoding', 'gzip'), ('expires', 'Sun, 25 Jan 1981 05:00:00 GMT'), ('server', 'cloudflare'), ('cf-auditlog-id', '01a02669-0420-7369-a61e-855be75ee987'), ('strict-transport-security', 'max-age=31536000'), ('vary', 'Accept-Encoding'), ('pragma', 'no-cache'), ('ratelimit', '"list_zones";r=1200;t=1'), ('ratelimit-policy', '"list_zones";q=1201;w=300'), ('x-content-type-options', 'nosniff'), ('x-frame-options', 'SAMEORIGIN'), ('api-version', '2026-09-25.epoch')])
+2026-08-21 18:20:12,800:DEBUG:certbot_dns_cloudflare._internal.dns_cloudflare:Found zone_id of 0ea2e06a06edab9e8c1436698c71c570 for disdajoint.com using name disdajoint.com
+2026-08-21 18:20:12,802:DEBUG:cloudflare._base_client:Request options: {'method': 'get', 'url': '/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records', 'params': {'content': {'exact': '2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc'}, 'name': {'exact': '_acme-challenge.disdajoint.com'}, 'per_page': 1, 'type': 'TXT'}, 'post_parser': <function SyncAPIClient._request_api_list.<locals>._parser at 0x7f599efa7f60>, 'content': None, 'json_data': None}
+2026-08-21 18:20:12,804:DEBUG:cloudflare._base_client:Sending HTTP Request: GET https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records?content.exact=2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc&name.exact=_acme-challenge.disdajoint.com&per_page=1&type=TXT
+2026-08-21 18:20:12,805:DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+2026-08-21 18:20:12,807:DEBUG:httpcore.http11:send_request_headers.complete
+2026-08-21 18:20:12,809:DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+2026-08-21 18:20:12,810:DEBUG:httpcore.http11:send_request_body.complete
+2026-08-21 18:20:12,811:DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+2026-08-21 18:20:12,998:DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 21 Aug 2026 22:20:12 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'cf-auditlog-id', b'01a02669-0507-7d08-bf10-99bf35e27d72'), (b'CF-Ray', b'a2ed060e6f8e0d89-ATL'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'Vary', b'Accept-Encoding'), (b'Ratelimit', b'"default";r=1199;t=1'), (b'Ratelimit-Policy', b'"default";q=1200;w=300'), (b'api-version', b'2026-09-25.epoch')])
+2026-08-21 18:20:12,999:INFO:httpx:HTTP Request: GET https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records?content.exact=2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc&name.exact=_acme-challenge.disdajoint.com&per_page=1&type=TXT "HTTP/1.1 200 OK"
+2026-08-21 18:20:13,001:DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+2026-08-21 18:20:13,003:DEBUG:httpcore.http11:receive_response_body.complete
+2026-08-21 18:20:13,004:DEBUG:httpcore.http11:response_closed.started
+2026-08-21 18:20:13,005:DEBUG:httpcore.http11:response_closed.complete
+2026-08-21 18:20:13,007:DEBUG:cloudflare._base_client:HTTP Response: GET https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records?content.exact=2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc&name.exact=_acme-challenge.disdajoint.com&per_page=1&type=TXT "200 OK" Headers({'date': 'Fri, 21 Aug 2026 22:20:12 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cf-auditlog-id': '01a02669-0507-7d08-bf10-99bf35e27d72', 'cf-ray': 'a2ed060e6f8e0d89-ATL', 'cf-cache-status': 'DYNAMIC', 'content-encoding': 'gzip', 'server': 'cloudflare', 'vary': 'Accept-Encoding', 'ratelimit': '"default";r=1199;t=1', 'ratelimit-policy': '"default";q=1200;w=300', 'api-version': '2026-09-25.epoch'})
+2026-08-21 18:20:13,009:DEBUG:cloudflare._base_client:Request options: {'method': 'get', 'url': '/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records', 'params': {'content': {'exact': '2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc'}, 'name': {'exact': '_acme-challenge.disdajoint.com'}, 'per_page': 1, 'type': 'TXT', 'page': 2}, 'post_parser': <function SyncAPIClient._request_api_list.<locals>._parser at 0x7f599efa7ec0>, 'content': None, 'json_data': None}
+2026-08-21 18:20:13,012:DEBUG:cloudflare._base_client:Sending HTTP Request: GET https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records?content.exact=2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc&name.exact=_acme-challenge.disdajoint.com&per_page=1&type=TXT&page=2
+2026-08-21 18:20:13,013:DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+2026-08-21 18:20:13,015:DEBUG:httpcore.http11:send_request_headers.complete
+2026-08-21 18:20:13,017:DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+2026-08-21 18:20:13,018:DEBUG:httpcore.http11:send_request_body.complete
+2026-08-21 18:20:13,019:DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+2026-08-21 18:20:13,149:DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 21 Aug 2026 22:20:12 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'cf-auditlog-id', b'01a02669-05d5-7ec2-8161-c1c2fef809fb'), (b'CF-Ray', b'a2ed060fbb2c0d89-ATL'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'Vary', b'Accept-Encoding'), (b'Ratelimit', b'"default";r=1198;t=1'), (b'Ratelimit-Policy', b'"default";q=1200;w=300'), (b'api-version', b'2026-09-25.epoch')])
+2026-08-21 18:20:13,151:INFO:httpx:HTTP Request: GET https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records?content.exact=2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc&name.exact=_acme-challenge.disdajoint.com&per_page=1&type=TXT&page=2 "HTTP/1.1 200 OK"
+2026-08-21 18:20:13,153:DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+2026-08-21 18:20:13,154:DEBUG:httpcore.http11:receive_response_body.complete
+2026-08-21 18:20:13,156:DEBUG:httpcore.http11:response_closed.started
+2026-08-21 18:20:13,157:DEBUG:httpcore.http11:response_closed.complete
+2026-08-21 18:20:13,158:DEBUG:cloudflare._base_client:HTTP Response: GET https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records?content.exact=2sLQ9ovUK5FkRjs_qTAwXILa5FFVL1SrKNvMA1ld7hc&name.exact=_acme-challenge.disdajoint.com&per_page=1&type=TXT&page=2 "200 OK" Headers({'date': 'Fri, 21 Aug 2026 22:20:12 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cf-auditlog-id': '01a02669-05d5-7ec2-8161-c1c2fef809fb', 'cf-ray': 'a2ed060fbb2c0d89-ATL', 'cf-cache-status': 'DYNAMIC', 'content-encoding': 'gzip', 'server': 'cloudflare', 'vary': 'Accept-Encoding', 'ratelimit': '"default";r=1198;t=1', 'ratelimit-policy': '"default";q=1200;w=300', 'api-version': '2026-09-25.epoch'})
+2026-08-21 18:20:13,161:DEBUG:cloudflare._base_client:Request options: {'method': 'delete', 'url': '/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records/cd4ccbddb0647c9b0674da1b27f8340c', 'idempotency_key': 'stainless-python-retry-2f440de9-efcf-469e-a615-229ad7024d59', 'post_parser': <function ResultWrapper._unwrapper at 0x7f599f349940>, 'content': None, 'json_data': None}
+2026-08-21 18:20:13,164:DEBUG:cloudflare._base_client:Sending HTTP Request: DELETE https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records/cd4ccbddb0647c9b0674da1b27f8340c
+2026-08-21 18:20:13,165:DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'DELETE']>
+2026-08-21 18:20:13,167:DEBUG:httpcore.http11:send_request_headers.complete
+2026-08-21 18:20:13,169:DEBUG:httpcore.http11:send_request_body.started request=<Request [b'DELETE']>
+2026-08-21 18:20:13,170:DEBUG:httpcore.http11:send_request_body.complete
+2026-08-21 18:20:13,171:DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'DELETE']>
+2026-08-21 18:20:13,370:DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 21 Aug 2026 22:20:12 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'cf-auditlog-id', b'01a02669-0686-700e-8c2f-dab2be740da8'), (b'CF-Ray', b'a2ed0610ce910d89-ATL'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Content-Encoding', b'gzip'), (b'Server', b'cloudflare'), (b'Vary', b'Accept-Encoding'), (b'Ratelimit', b'"default";r=1197;t=1'), (b'Ratelimit-Policy', b'"default";q=1200;w=300'), (b'api-version', b'2026-09-25.epoch')])
+2026-08-21 18:20:13,372:INFO:httpx:HTTP Request: DELETE https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records/cd4ccbddb0647c9b0674da1b27f8340c "HTTP/1.1 200 OK"
+2026-08-21 18:20:13,374:DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'DELETE']>
+2026-08-21 18:20:13,376:DEBUG:httpcore.http11:receive_response_body.complete
+2026-08-21 18:20:13,378:DEBUG:httpcore.http11:response_closed.started
+2026-08-21 18:20:13,379:DEBUG:httpcore.http11:response_closed.complete
+2026-08-21 18:20:13,380:DEBUG:cloudflare._base_client:HTTP Response: DELETE https://api.cloudflare.com/client/v4/zones/0ea2e06a06edab9e8c1436698c71c570/dns_records/cd4ccbddb0647c9b0674da1b27f8340c "200 OK" Headers({'date': 'Fri, 21 Aug 2026 22:20:12 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cf-auditlog-id': '01a02669-0686-700e-8c2f-dab2be740da8', 'cf-ray': 'a2ed0610ce910d89-ATL', 'cf-cache-status': 'DYNAMIC', 'content-encoding': 'gzip', 'server': 'cloudflare', 'vary': 'Accept-Encoding', 'ratelimit': '"default";r=1197;t=1', 'ratelimit-policy': '"default";q=1200;w=300', 'api-version': '2026-09-25.epoch'})
+2026-08-21 18:20:13,383:DEBUG:certbot_dns_cloudflare._internal.dns_cloudflare:Successfully deleted TXT record.
+2026-08-21 18:20:13,392:DEBUG:certbot._internal.log:Exiting abnormally:
+Traceback (most recent call last):
+  File "/opt/certbot/bin/certbot", line 6, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/main.py", line 18, in main
+    return internal_main.main(cli_args)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/main.py", line 1886, in main
+    return config.func(config, plugins)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/main.py", line 1598, in certonly
+    lineage = _get_and_save_cert(le_client, config, sans, certname, lineage)
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/main.py", line 143, in _get_and_save_cert
+    lineage = le_client.obtain_and_enroll_certificate(sans, certname)
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/client.py", line 533, in obtain_and_enroll_certificate
+    cert, chain, key, _ = self.obtain_certificate(sans)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/client.py", line 434, in obtain_certificate
+    orderr = self._get_order_and_authorizations(csr.data, self.config.allow_subset_of_names)
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/client.py", line 512, in _get_order_and_authorizations
+    authzr = self.auth_handler.handle_authorizations(orderr, self.config, best_effort)
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/auth_handler.py", line 104, in handle_authorizations
+    self._poll_authorizations(authzrs, max_retries, max_time_mins, best_effort)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/lib/python3.13/site-packages/certbot/_internal/auth_handler.py", line 208, in _poll_authorizations
+    raise errors.AuthorizationError('Some challenges have failed.')
+certbot.errors.AuthorizationError: Some challenges have failed.
+2026-08-21 18:20:13,403:ERROR:certbot._internal.log:Some challenges have failed.
+2026-08-21 18:20:13,489:DEBUG:httpcore.connection:close.started
+2026-08-21 18:20:13,493:DEBUG:httpcore.connection:close.complete
+2026-08-21 18:20:13,495:DEBUG:httpcore.connection:close.started
+2026-08-21 18:20:13,497:DEBUG:httpcore.connection:close.complete
